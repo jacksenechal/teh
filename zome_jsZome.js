@@ -1,7 +1,7 @@
 function entity(claimId, entity) {
   entityId = commit('entity', entity)
   debug(entityId)
-  debug('PUTTING')
+  debug('PUTTING: '+ entityId +', '+ entity)
   put(entityId)
   debug('PUTTED')
   putmeta(entityId, claimId, 'claim')  // sub, obj, pred
@@ -11,14 +11,18 @@ function entity(claimId, entity) {
 expose('claim', HC.JSON)
 function claim(params) {
   var claimId = commit('trust_atom', params.atom)
+  debug(JSON.stringify(params, null, 2))
   put(claimId)
 
   entity(claimId, params.creator)
   entity(claimId, params.target)
 
-  (params.tags || []).forEach(function addTag(tag) {
-    entity(claimId, tag)
-  })
+  if (params.tags) {
+    for(var i = 0; i < params.tags.length; i++) {
+      var tag = params.tags[i]
+      entity(claimId, tag)
+    }
+  }
 
   // // putmeta(claimId, targets, params.target )
   return claimId

@@ -33,11 +33,9 @@ function get(params) {
   debug("GETTING")
   debug(JSON.stringify(params, null, 2))
   var targetId = commit('entity', params.target)
-  debug('111111')
   console.log(targetId)
   // targetId = hash(params.target)
   var claims = getmeta(targetId, 'claim')
-  debug('222222')
   debug("RESULT: " + claims)
   return claims
 }

@@ -4,7 +4,7 @@ language: go
 
 install: false
 
-after_install:
+before_install:
   - go get -v -u github.com/whyrusleeping/gx
   - go get -v -u github.com/metacurrency/holochain
   - cd $GOPATH/src/github.com/metacurrency/holochain

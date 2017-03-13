@@ -1,13 +1,10 @@
 sudo: false
 
-language: node_js
+language: go
 
-node_js:
-  - node
+install: false
 
-before_install:
-  - export GOPATH=$HOME/gopath
-  - export PATH=$HOME/gopath/bin:$PATH
+after_install:
   - go get -v -u github.com/whyrusleeping/gx
   - go get -v -u github.com/metacurrency/holochain
   - cd $GOPATH/src/github.com/metacurrency/holochain
@@ -23,7 +20,3 @@ script:
 cache:
   directories:
     - $GOPATH/src/gx
-
-notifications:
-  slack:
-    secure: 0BFyKtWvJG/oMau7gJlsI8NLQXpa1r2orz0Fa09zfcH/qv+aQrwXBUUdp6kYIFsrERDrQMUimjmDc7AwqB1KtTnIztoVPF3S5cWPWIseKksXaN3mZLVYAZwD0n54l0Wq6yy5bnZM7R20pBrPajbqYPIwyX7KfS5bJJ4UKN6i5vI=

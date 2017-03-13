@@ -6,6 +6,8 @@ node_js:
   - node
 
 before_install:
+  - export GOPATH=$HOME/gopath
+  - export PATH=$HOME/gopath/bin:$PATH
   - go get -v -u github.com/whyrusleeping/gx
   - go get -v -u github.com/metacurrency/holochain
   - cd $GOPATH/src/github.com/metacurrency/holochain
@@ -13,7 +15,8 @@ before_install:
   - make
 
 script:
-  - hc init testbox
+  - hc init testing
+  - cd $TRAVIS_BUILD_DIR
   - hc --debug --verbose clone --force . teh
   - hc --debug --verbose test teh
 

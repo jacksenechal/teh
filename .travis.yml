@@ -8,7 +8,9 @@ install: false
 before_install:
   - go get -v -u github.com/whyrusleeping/gx
   - go get -v -u github.com/metacurrency/holochain
-  - cd $GOPATH/src/github.com/metacurrency/holochain && make
+  - cd $GOPATH/src/github.com/metacurrency/holochain
+  - git reset --hard origin/dev  # TEMPORARY, UNTIL TEST FIX IS ON MASTER
+  - make
 
 script:
   - hc init testbox

@@ -6,8 +6,9 @@ install: false
 
 before_install:
   - go get -v -u github.com/whyrusleeping/gx
-  - go get -v -u github.com/metacurrency/holochain
-  - cd $GOPATH/src/github.com/metacurrency/holochain
+  - go get -v -u github.com/harlantwood/holochain
+  - cd $GOPATH/src/github.com/harlantwood/holochain
+  - git reset --hard origin/dev
   - make
 
 script:

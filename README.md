@@ -1,5 +1,7 @@
 # TEH: Trust Exchange Holochain
 
+This is a small project exploring integration between [Trust Exchange](https://github.com/CoMakery/trust-exchange) and [Holochain](https://github.com/metacurrency/holochain).
+
 ## Getting started
 
 ```sh

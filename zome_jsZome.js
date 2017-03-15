@@ -1,43 +1,55 @@
 expose('claim', HC.JSON)
 function claim(params) {
-  var claimId = commit('trust_atom', params.atom)
-  debug(JSON.stringify(params, null, 2))
-  debug(JSON.stringify(params))
-  put(claimId)
+  var claimId = putClaim(params);
 
-  entity(claimId, params.creator)
-  entity(claimId, params.target)
+  putClaimMetadata({claimId: claimId, entity: params.creator})
+  putClaimMetadata({claimId: claimId, entity: params.target})
 
   if (params.tags) {
     for(var i = 0; i < params.tags.length; i++) {
       var tag = params.tags[i]
-      entity(claimId, tag)
+      putClaimMetadata({claimId: claimId, entity: tag})
     }
   }
 
   return claimId
 }
 
-function entity(claimId, entity) {
+expose('putClaim', HC.JSON)
+function putClaim(params) {
+  var claimId = commit('trust_atom', params.atom)
+  put(claimId)
+  return claimId;
+}
+
+expose('putClaimMetadata', HC.JSON)
+function putClaimMetadata(args) {
+  claimId = args.claimId
+  entity = args.entity
   entityId = commit('entity', entity)
-  // debug(entityId)
-  // debug('PUTTING: '+ entityId +', '+ entity)
   put(entityId)
-  // debug('PUTTED')
   putmeta(entityId, claimId, 'claim')  // sub, obj, pred
   return entityId
 }
 
 expose('get', HC.JSON)
 function get(params) {
-  // debug("GETTING")
-  // debug(JSON.stringify(params, null, 2))
   var targetId = commit('entity', params.target)
   console.log(targetId)
-  // targetId = hash(params.target)
   var claims = getmeta(targetId, 'claim')
   debug("RESULT: " + JSON.stringify(claims, null, 4))
   return claims
+}
+
+expose('getHashes', HC.JSON)
+function getHashes(params) {
+  var claims = get(params).Entries
+  var hashes = []
+  for(var i = 0; i < claims.length; i++) {
+    var claim = claims[i]
+    hashes.push(claim.H)
+  }
+  return hashes
 }
 
 function validate(entry_type, entry, props) {
@@ -45,8 +57,5 @@ function validate(entry_type, entry, props) {
 }
 
 function genesis() {
-  // var holochainId = property("_id")
-  // targets = commit('entity', 'targets')  ; put(targets)
-  // putmeta(holochainId, targets, 'targets')
   return true
 }

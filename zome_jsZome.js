@@ -1,17 +1,8 @@
-function entity(claimId, entity) {
-  entityId = commit('entity', entity)
-  debug(entityId)
-  debug('PUTTING: '+ entityId +', '+ entity)
-  put(entityId)
-  debug('PUTTED')
-  putmeta(entityId, claimId, 'claim')  // sub, obj, pred
-  return entityId
-}
-
 expose('claim', HC.JSON)
 function claim(params) {
   var claimId = commit('trust_atom', params.atom)
   debug(JSON.stringify(params, null, 2))
+  debug(JSON.stringify(params))
   put(claimId)
 
   entity(claimId, params.creator)
@@ -24,19 +15,28 @@ function claim(params) {
     }
   }
 
-  // // putmeta(claimId, targets, params.target )
   return claimId
+}
+
+function entity(claimId, entity) {
+  entityId = commit('entity', entity)
+  // debug(entityId)
+  // debug('PUTTING: '+ entityId +', '+ entity)
+  put(entityId)
+  // debug('PUTTED')
+  putmeta(entityId, claimId, 'claim')  // sub, obj, pred
+  return entityId
 }
 
 expose('get', HC.JSON)
 function get(params) {
-  debug("GETTING")
-  debug(JSON.stringify(params, null, 2))
+  // debug("GETTING")
+  // debug(JSON.stringify(params, null, 2))
   var targetId = commit('entity', params.target)
   console.log(targetId)
   // targetId = hash(params.target)
   var claims = getmeta(targetId, 'claim')
-  debug("RESULT: " + claims)
+  debug("RESULT: " + JSON.stringify(claims, null, 4))
   return claims
 }
 

@@ -2,11 +2,17 @@
 
 This is a small project exploring integration between [Trust Exchange](https://github.com/CoMakery/trust-exchange) and [Holochain](https://github.com/metacurrency/holochain).
 
-## Getting started
+## Run a Server
 
 ```sh
-git clone git@github.com:CoMakery/teh.git
-cd teh
-./bin/teh-dev
-open http://localhost:3141/
+./bin/teh-dev.sh
+open http://localhost:3141
+```
+
+## Running Tests
+
+Prerequisite: install [yarn](https://yarnpkg.com/en/).
+
+```sh
+yarn run test
 ```

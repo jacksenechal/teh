@@ -1,5 +1,7 @@
 # TEH: Trust Exchange Holochain
 
+[![Build Status](https://travis-ci.org/CoMakery/teh.svg?branch=master)](https://travis-ci.org/CoMakery/teh)
+
 This is a small project exploring integration between [Trust Exchange](https://github.com/CoMakery/trust-exchange) and [Holochain](https://github.com/metacurrency/holochain).
 
 ## Run a Server

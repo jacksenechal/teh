@@ -36,14 +36,22 @@ expose('get', HC.JSON)
 function get(params) {
   var targetId = commit('entity', params.target)
   console.log(targetId)
-  var claims = getmeta(targetId, 'claim')
-  debug("RESULT: " + JSON.stringify(claims, null, 4))
-  return claims
+  var result = getmeta(targetId, 'claim')
+  debug("RESULT: " + JSON.stringify(result, null, 4))
+  if (result.name === "HolochainError") {
+    if (result.message === "hash not found") {
+      return []
+    } else {
+      throw(result)
+    }
+  } else {
+    return result.Entries
+  }
 }
 
 expose('getHashes', HC.JSON)
 function getHashes(params) {
-  var claims = get(params).Entries
+  var claims = get(params)
   var hashes = []
   for(var i = 0; i < claims.length; i++) {
     var claim = claims[i]

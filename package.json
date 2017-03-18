@@ -12,7 +12,8 @@
     "lint": "yarn run lint:ci -- --fix",
     "pre-push": "npm-run-all --silent test lint check-clean",
     "shipit": "npm-run-all --silent pre-push && git push --tags origin head",
-    "test": "hc --debug --verbose clone --force . teh-test && hc --debug --verbose test teh-test"
+    "test": "hc clone --force . teh-test && hc test teh-test",
+    "testv": "hc --debug --verbose clone --force . teh-test && hc --debug --verbose test teh-test"
 },
   "devDependencies": {
     "eslint": "^3.17.1",

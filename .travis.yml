@@ -8,7 +8,7 @@ before_install:
   - go get -v -u github.com/whyrusleeping/gx
   - go get -v -u github.com/harlantwood/holochain
   - cd $GOPATH/src/github.com/harlantwood/holochain
-  - git reset --hard origin/dev
+  - git reset --hard origin/sleep
   - make
 
 script:

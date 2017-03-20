@@ -1,20 +1,20 @@
 <html>
 <head>
-    <title>Trust Exchange Holochain</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript" src="/hc.js">
-    </script>
+  <title>Trust Exchange Holochain</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="/hc.js">
+  </script>
 </head>
 <body>
 
 <select id="zome" name="zome">
-    <option value="trustClaim">trustClaim</option>
+  <option value="trustClaim">trustClaim</option>
 </select>
 <select id="fn" name="fn">
-    <option value="claim">claim</option>
-    <option value="get">get</option>
+  <option value="claim">claim</option>
+  <option value="get">get</option>
 </select>
-<br />
+<br/>
 
 <textarea id="data" name="data" rows="35" cols="150">{
     "@context": "https://schema.trust.exchange/TrustClaim.jsonld",
@@ -50,7 +50,7 @@
     }
 }</textarea>
 
-<br />
+<br/>
 
 <button onclick="send();">Send</button>
 <div id="result"></div>

@@ -11,7 +11,6 @@ function claim(params) {
       putClaimMetadata({claimId: claimId, entity: tag})
     }
   }
-
   return claimId
 }
 
@@ -24,9 +23,9 @@ function putClaim(params) {
 
 expose('putClaimMetadata', HC.JSON)
 function putClaimMetadata(args) {
-  claimId = args.claimId
-  entity = args.entity
-  entityId = commit('entity', entity)
+  var claimId = args.claimId
+  var entity = args.entity
+  var entityId = commit('entity', entity)
   put(entityId)
   putmeta(entityId, claimId, 'claim')  // sub, obj, pred
   return entityId

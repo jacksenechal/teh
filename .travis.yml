@@ -19,4 +19,8 @@ script:
 
 cache:
   directories:
-    - $GOPATH/src/gx
+  - "$GOPATH/src/gx"
+notifications:
+  slack:
+    rooms:
+      secure: IVKlsMXkO3vFVGPDuF12HP0DfU699O8M1g6Cco67E/45vglYIiXIG1yI+FwXxZDnGZm6SIRDf84vx8g77LFB70EdRMBxuJivVIUbdbIikIGDmEPBnHJ3NfEzod5w8ezNnW3c390ubgaYlWgM7LXMq3HkCpgxxDMr5ddAfiCRxGL8xwkRD0TxDIyfJEd5CDL2bk6OE7DxCIkmKSTsu99+/kFLIul8kXspqMZnGgPrIg+zks6C+zwy9bnq8V1FVtHZSTEqpCCKqCIJ78wqqT82OMVJ9+qPtuxagXJ6IZMryTukL4HkKp+i/n61FvDX+lzB+kHppolJPFR0cBvt15XZgVp81hCmTcCnsNTfgtpiNIQjWmtoqBrr85VJGP+6DjxuYDf7qTc30qH5nc2lzPHI+XEhP7+OWvOOVMPdHmrL4ocpANHfebk6AY3gFmfaXcDWXZHVQhVMnMb1f41+A0KpwveKQmpmngA91VBSBSkpMVRecXG/XdZ0R3oyYO9ndlJl2MfAsJEeRsPxfg0eg13fBe49ODv9yowgyFxdJ9wx6o4pnIL7+4udB6Si04D0ZJd+dDhQD9jfuVcOSuE5t9Rx3hdXXgitRArtCqJjrBHndrI/GELB1Z/H5bnb0bJ6Og4Pey3zHYG0xCWxmssTLRbARXWScfuFDGkz16GZ8KhASCk=

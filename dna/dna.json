@@ -1,43 +1,50 @@
 {
-    "Version": 0,
-    "Id": "5b48bc76-02cd-11e7-afe2-14109fdd3a6b",
-    "Name": "teh",
-    "Properties": {
-        "description": "Trust exchange holochain",
-        "language": "en"
-    },
-    "PropertiesSchema": "schema_properties.json",
-    "HashType": "sha2-256",
-    "BasedOn": {
-        "H": null
-    },
-    "Zomes": {
-        "trustClaim": {
-            "Name": "trustClaim",
-            "Description": "Trust Exchange signed Verifiable Claim",
-            "Code": "trustClaim.js",
-            "NucleusType": "js",
-            "CodeHash": {
-                "H": "EiDeY7L4X+Hf3q2ghGRsbO9zL9KKBood9X0Nrbgv0/CM+Q=="
-            },
-            "Entries": {
-                "trust_atom": {
-                    "Name": "Trust Atom",
-                    "DataFormat": "json",
-                    "Schema": "schemaTrustClaim.json",
-                    "SchemaHash": {
-                        "H": null
-                    }
-                },
-                "entity": {
-                  "Name": "Entity",
-                  "DataFormat": "string",
-                  "Schema": "",
-                  "SchemaHash": {
-                      "H": null
-                  }
-                }
-            }
+  "Version": 0,
+  "RequiresVersion": 4,
+  "Id": "5b48bc76-02cd-11e7-afe2-14109fdd3a6b",
+  "Name": "teh",
+  "Properties": {
+    "description": "Trust exchange holochain",
+    "language": "en"
+  },
+  "PropertiesSchema": "schema_properties.json",
+  "HashType": "sha2-256",
+  "BasedOn": {
+    "H": null
+  },
+  "Zomes": {
+    "trustClaim": {
+      "Name": "trustClaim",
+      "Description": "Trust Exchange signed Verifiable Claim",
+      "Code": "trustClaim.js",
+      "NucleusType": "js",
+      "CodeHash": {
+        "H": "EiDeY7L4X+Hf3q2ghGRsbO9zL9KKBood9X0Nrbgv0/CM+Q=="
+      },
+      "Entries": {
+        "trust_atom": {
+          "Name": "Trust Atom",
+          "DataFormat": "json",
+          "Sharing": "public",
+          "Schema": "schemaTrustClaim.json",
+          "SchemaHash": {
+            "H": null
+          }
+        },
+        "relation": {
+          "Name": "relation",
+          "DataFormat": "links"
+        },
+        "entity": {
+          "Name": "Entity",
+          "DataFormat": "string",
+          "Sharing": "public",
+          "Schema": "",
+          "SchemaHash": {
+            "H": null
+          }
         }
+      }
     }
+  }
 }

@@ -12,7 +12,6 @@
     "Zome": "trustClaim",
     "FnName": "putClaim",
     "Input": {
-      "algorithm": "EcdsaKoblitzSignature2016",
       "atom": {
         "@context": "https://schema.trust.exchange/TrustClaim.jsonld",
         "claim": {
@@ -46,6 +45,7 @@
         },
         "type": "TrustClaim"
       },
+      "algorithm": "EcdsaKoblitzSignature2016",
       "creator": "did:00a65b11-593c-4a46-bf64-8b83f3ef698f",
       "description": "Elixir programming",
       "privateKey": "L4mEi7eEdTNNFQEWaa7JhUKAbtHdVvByGAqvpJKC53mfiqunjBjw",

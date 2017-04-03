@@ -8,14 +8,13 @@ before_install:
   - go get -v -u github.com/whyrusleeping/gx
   - go get -v -u github.com/metacurrency/holochain
   - cd $GOPATH/src/github.com/metacurrency/holochain
-  - git reset --hard origin/sleep
   - make
 
 script:
   - hc init testing
   - cd $TRAVIS_BUILD_DIR
-  - hc --debug --verbose clone --force . teh
-  - hc --debug --verbose test teh
+  - hc --debug --verbose clone --force . teh-test
+  - hc --debug --verbose test teh-test
 
 cache:
   directories:

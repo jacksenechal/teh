@@ -53,23 +53,19 @@ function getHashes(params) {
   return hashes
 }
 
-function validate(entry_type, entry, props) {
+function validate() {
   return true
 }
 
-function validateCommit(entry_type, entry, header, sources) {
+function validateCommit() {
   return true
 }
 
-function validatePut(entry_type, entry, header, sources) {
+function validatePut() {
   return true
 }
 
-function validateCommit(entry_type, entry, header, sources) {
-  return true
-}
-
-function validateLink(linkEntryType, baseHash, linkHash, tag, sources) {
+function validateLink() {
   return true
 }
 

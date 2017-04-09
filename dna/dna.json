@@ -14,9 +14,9 @@
   },
   "Zomes": [
     {
-      "Name": "trustClaim",
-      "Description": "Trust Exchange signed Verifiable Claim",
-      "Code": "trustClaim.js",
+      "Name": "trustAtom",
+      "Description": "ŦRUSŦ GRΔPH Trust Atom",
+      "Code": "trustAtom.js",
       "NucleusType": "js",
       "CodeHash": {
         "H": "EiDeY7L4X+Hf3q2ghGRsbO9zL9KKBood9X0Nrbgv0/CM+Q=="
@@ -27,28 +27,28 @@
           "CallingType": "json"
         },
         {
-          "Name": "putClaimMetadata",
+          "Name": "addMetadata",
           "CallingType": "json"
         },
         {
-          "Name": "putClaim",
+          "Name": "commitAtom",
           "CallingType": "json"
         },
         {
-          "Name": "claim",
+          "Name": "create",
           "CallingType": "json"
         },
         {
-          "Name": "get",
+          "Name": "getAtoms",
           "CallingType": "json"
         }
       ],
       "Entries": [
         {
-          "Name": "trust_atom",
+          "Name": "trustAtom",
           "DataFormat": "json",
           "Sharing": "public",
-          "Schema": "schemaTrustClaim.json",
+          "Schema": "schemaTrustAtom.json",
           "SchemaHash": {
             "H": null
           }

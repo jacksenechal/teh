@@ -1,6 +1,6 @@
 {
   "Version": 0,
-  "RequiresVersion": 4,
+  "RequiresVersion": 5,
   "Id": "5b48bc76-02cd-11e7-afe2-14109fdd3a6b",
   "Name": "teh",
   "Properties": {
@@ -12,8 +12,8 @@
   "BasedOn": {
     "H": null
   },
-  "Zomes": {
-    "trustClaim": {
+  "Zomes": [
+    {
       "Name": "trustClaim",
       "Description": "Trust Exchange signed Verifiable Claim",
       "Code": "trustClaim.js",
@@ -21,9 +21,31 @@
       "CodeHash": {
         "H": "EiDeY7L4X+Hf3q2ghGRsbO9zL9KKBood9X0Nrbgv0/CM+Q=="
       },
-      "Entries": {
-        "trust_atom": {
-          "Name": "Trust Atom",
+      "Functions": [
+        {
+          "Name": "getHashes",
+          "CallingType": "json"
+        },
+        {
+          "Name": "putClaimMetadata",
+          "CallingType": "json"
+        },
+        {
+          "Name": "putClaim",
+          "CallingType": "json"
+        },
+        {
+          "Name": "claim",
+          "CallingType": "json"
+        },
+        {
+          "Name": "get",
+          "CallingType": "json"
+        }
+      ],
+      "Entries": [
+        {
+          "Name": "trust_atom",
           "DataFormat": "json",
           "Sharing": "public",
           "Schema": "schemaTrustClaim.json",
@@ -31,12 +53,12 @@
             "H": null
           }
         },
-        "relation": {
+        {
           "Name": "relation",
           "DataFormat": "links"
         },
-        "entity": {
-          "Name": "Entity",
+        {
+          "Name": "entity",
           "DataFormat": "string",
           "Sharing": "public",
           "Schema": "",
@@ -44,7 +66,7 @@
             "H": null
           }
         }
-      }
+      ]
     }
-  }
+  ]
 }

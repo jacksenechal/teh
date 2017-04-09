@@ -1,4 +1,3 @@
-expose('claim', HC.JSON)
 function claim(params) {
   var claimId = putClaim(params)
 
@@ -14,12 +13,10 @@ function claim(params) {
   return claimId
 }
 
-expose('putClaim', HC.JSON)
 function putClaim(params) {
   return commit('trust_atom', JSON.stringify(params.atom))
 }
 
-expose('putClaimMetadata', HC.JSON)
 function putClaimMetadata(args) {
   var claimId = args.claimId
   var entity = args.entity
@@ -27,12 +24,11 @@ function putClaimMetadata(args) {
   return relate(entityId, claimId, 'claim')  // sub, obj, pred
 }
 
-expose('get', HC.JSON)
 function get(params) {
   var targetId = commit('entity', params.target)
   var result = getlink(targetId, 'claim')
   if (result.name === 'HolochainError') {
-    if (result.message === 'hash not found') {
+    if (result.message === 'No values for claim') {
       return []
     } else {
       throw (result)
@@ -42,7 +38,6 @@ function get(params) {
   }
 }
 
-expose('getHashes', HC.JSON)
 function getHashes(params) {
   var claims = get(params)
   var hashes = []

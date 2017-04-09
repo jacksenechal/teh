@@ -1,11 +1,9 @@
 const unusedVars = [
-  'claim',
+  'create',
   'd',
   'genesis',
-  'get',
+  'getAtoms',
   'getHashes',
-  'putClaim',
-  'putClaimMetadata',
   'relate',
 ]
 
@@ -19,6 +17,7 @@ const config = {
     'commit': false,
     'debug': false,
     'expose': false,
+    'get': false,
     'getlink': false,
     'HC': false,
     'props': false,

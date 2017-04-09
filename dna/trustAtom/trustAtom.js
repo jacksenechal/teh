@@ -26,7 +26,7 @@ function addMetadata(args) {
 
 function relate(base, link, tag) {
   var rel = {Links: [{Base: base, Link: link, Tag: tag}]}
-  relationString = JSON.stringify(rel)
+  var relationString = JSON.stringify(rel)
   return commit('relation', relationString)
 }
 

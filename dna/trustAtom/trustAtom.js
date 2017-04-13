@@ -31,32 +31,36 @@ function relate(base, link, tag) {
 }
 
 function getAtoms(params) {
-  return getHashes(params).map(function(hash) {
-    return get(hash).C
-  })
+  var raw = getRawAtoms(params)
+  var atomKeys = keys(raw)
+  var atoms = []
+  for (var i = 0; i < atomKeys.length; i++) {
+    var key = atomKeys[i]
+    atoms.push(raw[key])
+  }
+  return atoms
 }
 
 function getHashes(params) {
-  var atoms = getRawAtoms(params)
-  var hashes = []
-  for (var i = 0; i < atoms.length; i++) {
-    var atom = atoms[i]
-    hashes.push(atom.H)
-  }
-  return hashes
+  return keys(getRawAtoms(params))
 }
 
 function getRawAtoms(params) {
   var targetId = commit('entity', params.target)
-  var links = getlink(targetId, 'trustAtom')
-  if (links.name === 'HolochainError') {
-    if (links.message === 'No values for trustAtom') {
+  var results = getlink(targetId, 'trustAtom', { Load: true })
+  if (results.name === 'HolochainError') {
+    if (results.message === 'No values for trustAtom') {
       return []
     } else {
-      throw (links)
+      throw (results)
     }
   } else {
-    return links.Hashes
+    var atoms = {}
+    var links = results.Links
+    for (var i = 0; i < links.length; i++) {
+      atoms[links[i].H] = links[i].E
+    }
+    return atoms
   }
 }
 
@@ -84,3 +88,10 @@ function d(arg) {
   debug(JSON.stringify(arg, null, 4))
 }
 
+function keys(o) {
+  if (o !== Object(o))
+    throw new TypeError('Object.keys called on a non-object');
+  var k=[],p;
+  for (p in o) if (Object.prototype.hasOwnProperty.call(o,p)) k.push(p);
+  return k;
+}
